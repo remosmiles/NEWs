@@ -1,0 +1,31 @@
+<div id="news-container" style="border: 2px solid #00f2ff; padding: 20px; background: #111; color: white;">
+    <h2 style="color: #ff00e5;">Live News Ticker</h2>
+    <ul id="news-list">Lade Schlagzeilen...</ul>
+</div>
+
+<script>
+    // Da RSS-Feeds oft "CORS"-Probleme im Browser machen, 
+    // nutzen wir einen kleinen Proxy-Dienst.
+    async function getNews() {
+        const rssUrl = encodeURIComponent('https://www.20min.ch/rss');
+        const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`;
+
+        try {
+            const response = await fetch(proxyUrl);
+            const data = await response.json();
+            const list = document.getElementById('news-list');
+            list.innerHTML = "";
+
+            data.items.slice(0, 5).forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="${item.link}" target="_blank" style="color:#00f2ff; text-decoration:none;">
+                                  ${item.title}
+                                </a>`;
+                list.appendChild(li);
+            });
+        } catch (error) {
+            console.error("Fehler beim Laden:", error);
+        }
+    }
+    getNews();
+</script>
