@@ -4,28 +4,42 @@
 </div>
 
 <script>
-    // Da RSS-Feeds oft "CORS"-Probleme im Browser machen, 
-    // nutzen wir einen kleinen Proxy-Dienst.
     async function getNews() {
-        const rssUrl = encodeURIComponent('https://www.20min.ch/rss');
-        const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`;
+        const list = document.getElementById('news-list');
+        // Wir nutzen den Dienst rss2json, der CORS-Probleme umgeht
+        const rssUrl = 'https://www.20min.ch/rss';
+        const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
 
         try {
-            const response = await fetch(proxyUrl);
+            const response = await fetch(apiUrl);
             const data = await response.json();
-            const list = document.getElementById('news-list');
-            list.innerHTML = "";
 
-            data.items.slice(0, 5).forEach(item => {
-                const li = document.createElement('li');
-                li.innerHTML = `<a href="${item.link}" target="_blank" style="color:#00f2ff; text-decoration:none;">
-                                  ${item.title}
-                                </a>`;
-                list.appendChild(li);
-            });
+            if (data.status === 'ok') {
+                list.innerHTML = ""; // Lade-Text entfernen
+                
+                data.items.slice(0, 10).forEach(item => {
+                    const li = document.createElement('li');
+                    li.style.marginBottom = "15px";
+                    li.style.listStyle = "none";
+                    li.innerHTML = `
+                        <div style="font-size: 0.9em; color: #888;">${new Date(item.pubDate).toLocaleTimeString()}</div>
+                        <a href="${item.link}" target="_blank" style="color:#00f2ff; text-decoration:none; font-weight:bold; font-size: 1.1em;">
+                            ${item.title}
+                        </a>
+                        <p style="font-size: 0.8em; color: #ccc; margin-top: 5px;">${item.description.split('<')[0]}...</p>
+                    `;
+                    list.appendChild(li);
+                });
+            } else {
+                list.innerText = "Fehler: News konnten nicht geladen werden.";
+            }
         } catch (error) {
-            console.error("Fehler beim Laden:", error);
+            console.error("News-Fehler:", error);
+            list.innerText = "Verbindung zum News-Server fehlgeschlagen.";
         }
     }
+
+    // Sofort laden und alle 5 Minuten aktualisieren
     getNews();
+    setInterval(getNews, 300000);
 </script>
