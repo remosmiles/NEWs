@@ -130,72 +130,53 @@
         .ad-container { margin: 30px 0; text-align: center; }
         .ad-label { font-size: 10px; color: #999; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px; display: block; text-align: center; }
         
-        /* 1. NEU: Dezentere Fux Werbung (Native Ad Style) */
         .ad-banner-fux { 
-            background: #1a1a1a; 
-            color: white; 
-            border-radius: 4px; 
-            display: flex; 
-            align-items: center; 
-            padding: 12px 15px; 
-            text-decoration: none; 
-            cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-            transition: background 0.2s ease;
+            background: #1a1a1a; color: white; border-radius: 4px; display: flex; align-items: center; padding: 12px 15px; text-decoration: none; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.15); transition: background 0.2s ease;
         }
         .ad-banner-fux:hover { background: #222; }
-        .ad-banner-fux img { 
-            width: 60px; 
-            height: 60px; 
-            border-radius: 50%; 
-            margin-right: 15px;
-            border: 2px solid #D4AF37;
-        }
+        .ad-banner-fux img { width: 60px; height: 60px; border-radius: 50%; margin-right: 15px; border: 2px solid #D4AF37; }
         .ad-banner-fux .ad-text { text-align: left; flex: 1; }
         .ad-banner-fux h2 { margin: 0 0 3px 0; font-size: 15px; font-weight: bold; color: #D4AF37; letter-spacing: 0.5px; }
         .ad-banner-fux p { margin: 0; font-size: 13px; font-weight: normal; color: #aaa; line-height: 1.3; }
 
-        /* 2. Uri Tourismus Banner (Horizontal) */
         .ad-banner-uri {
             background: linear-gradient(135deg, #00529F 0%, #4facfe 100%); color: white; border-radius: 4px; padding: 25px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.15); text-decoration: none; display: block;
         }
         .ad-banner-uri h2 { margin: 0 0 5px 0; font-size: 28px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; }
         .ad-banner-uri p { margin: 0 0 15px 0; font-size: 16px; font-weight: 500; }
         
-        /* Sidebar Banner General */
         .ad-banner-sidebar { 
             color: white; height: 250px; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 4px; cursor: pointer; text-align: center; padding: 20px; box-shadow: inset 0 0 15px rgba(0,0,0,0.3); 
         }
         
-        /* 3. Dating Banner (Sidebar) */
         .ad-love { background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%); }
         .ad-love h3 { font-size: 26px; margin: 0 0 10px 0; font-weight: 900; line-height: 1.2; text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
         .ad-love p { font-size: 14px; margin-bottom: 20px; font-weight: bold; }
         .ad-love .btn-fake { background: white; color: #ff758c; border-radius: 25px; }
 
-        /* 4. Axentunnel Banner (Sidebar) */
         .ad-tunnel { background: linear-gradient(135deg, #ff8c00 0%, #2b2b2b 100%); border: 3px solid #ffcc00; }
         .ad-tunnel h3 { font-size: 28px; margin: 0 0 10px 0; font-weight: 900; line-height: 1.1; color: #ffcc00; text-transform: uppercase; }
         .ad-tunnel p { font-size: 13px; margin-bottom: 20px; color: #ddd; font-weight: bold; }
         .ad-tunnel .btn-fake { background: #ffcc00; color: #111; border-radius: 4px; }
 
-        /* Buttons Fake */
         .btn-fake { display: inline-block; padding: 10px 20px; font-weight: bold; font-size: 14px; text-transform: uppercase; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
         /* ---------------------------------- */
         
-        .sidebar h3 { 
-            border-bottom: 3px solid #00529F; padding-bottom: 8px; margin-top: 0; font-size: 20px; text-transform: uppercase;
-        }
+        .sidebar h3 { border-bottom: 3px solid #00529F; padding-bottom: 8px; margin-top: 0; font-size: 20px; text-transform: uppercase; }
         .sidebar-item { padding: 15px 0; border-bottom: 1px solid #eaeaea; }
         .sidebar-item:last-child { border-bottom: none; padding-bottom: 0; }
         .sidebar-item h4 { margin: 0 0 8px 0; font-size: 16px; color: #111; cursor: pointer; }
         .sidebar-item h4:hover { color: #00529F; }
         .sidebar-item p { font-size: 14px; margin: 0; color: #666; line-height: 1.4; }
         
-        .comment-section { margin-top: 50px; background: #f9f9f9; padding: 25px; border-radius: 4px; }
-        .comment-section h3 { margin-top: 0; font-size: 20px; border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-bottom: 20px; }
-        .comment { background: white; padding: 15px; margin-bottom: 15px; border-radius: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
-        .comment-author { font-weight: bold; margin-bottom: 8px; font-size: 15px; color: #00529F; }
+        .comment-section { margin-top: 50px; background: #f9f9f9; padding: 25px; border-radius: 4px; border-top: 4px solid #00529F; }
+        .comment-section h3 { margin-top: 0; font-size: 22px; border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-bottom: 20px; }
+        .comment { background: white; padding: 18px; margin-bottom: 15px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-left: 4px solid transparent; }
+        .comment:nth-child(even) { border-left-color: #E3000F; } /* Optische Abwechslung */
+        .comment:nth-child(odd) { border-left-color: #00529F; }
+        .comment-author { font-weight: 800; margin-bottom: 8px; font-size: 16px; color: #222; display: flex; justify-content: space-between; }
+        .comment-time { font-size: 12px; color: #999; font-weight: normal; }
+        .comment-text { font-size: 15px; color: #444; line-height: 1.4; }
         
         @media (max-width: 768px) {
             .container { flex-direction: column; }
@@ -262,18 +243,71 @@
                 </div>
 
                 <div class="comment-section">
-                    <h3>💬 Community (3 Kommentare)</h3>
+                    <h3>💬 Community (13 Kommentare)</h3>
+                    
                     <div class="comment">
-                        <div class="comment-author">Gotthard_Racer_99</div>
-                        Wahnsinn, solche Leute braucht das Land! Respekt an alle, die in der Zentrale den Kopf hinhalten. 🚓👏
+                        <div class="comment-author">Schicht_Legende <span class="comment-time">vor 12 Min</span></div>
+                        <div class="comment-text">Angelo bester Mann!!! Grüsse vom ganzen Team an der Front! 👊💪</div>
                     </div>
+                    
                     <div class="comment">
-                        <div class="comment-author">UrnerBär</div>
-                        Ich glaube ich hab ihn mal am Telefon gehabt, als ich was melden musste. Mega freundlich und super professionell.
+                        <div class="comment-author">WutBürger_Uri <span class="comment-time">vor 25 Min</span></div>
+                        <div class="comment-text">Wieder mal typisch. Reine Steuergeldverschwendung! Sollen lieber richtige Verbrecher jagen statt sich in der Zeitung selbst zu feiern.</div>
                     </div>
+                    
                     <div class="comment">
-                        <div class="comment-author">Schicht_Legende</div>
-                        Angelo bester Mann!!! Grüsse vom ganzen Team! 👊💪
+                        <div class="comment-author">Lothar_Ultras_Altdorf <span class="comment-time">vor 41 Min</span></div>
+                        <div class="comment-text">Angelo in Ehren, aber wieso gibt es keinen Artikel über Lothar? Der Mann ist der wahre Grund, warum man bei der Polizei anruft! 😍🔥</div>
+                    </div>
+                    
+                    <div class="comment">
+                        <div class="comment-author">Frontschwein_04 <span class="comment-time">vor 1 Std</span></div>
+                        <div class="comment-text">Naja, im warmen, trockenen Büro beim Tippen ist man schnell ein Held. Kommt mal bei 3 Grad und Regen zu uns an die Unfallstelle! 😉</div>
+                    </div>
+                    
+                    <div class="comment">
+                        <div class="comment-author">Funk_Fuchs <span class="comment-time">vor 1 Std</span></div>
+                        <div class="comment-text">Angelo ist nur deshalb so unglaublich effizient, weil er das ständige Geheule von Börringer im Pausenraum nicht mehr erträgt und einfach schnell Feierabend machen will. 😂</div>
+                    </div>
+                    
+                    <div class="comment">
+                        <div class="comment-author">Ruedi1958 <span class="comment-time">vor 2 Std</span></div>
+                        <div class="comment-text">Ist das dieser neue Radarkasten am Gotthard??? Reine Abzocke von uns Autofahrern!!! Meine Steuergelder! Gruss Ruedi</div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-author">Gotthard_Racer_99 <span class="comment-time">vor 2 Std</span></div>
+                        <div class="comment-text">Wahnsinn, solche Leute braucht das Land! Respekt an alle, die in der Zentrale Tag und Nacht den Kopf hinhalten. 🚓👏</div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-author">SVZ_Chef_Büezer <span class="comment-time">vor 3 Std</span></div>
+                        <div class="comment-text">Maschine hin oder her, lieber Angelo: Bitte schick nicht immer jeden fragwürdigen LKW zu uns ins SVZ Erstfeld runter. Wir ersaufen langsam in Arbeit hier!</div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-author">Insider_77 <span class="comment-time">vor 3 Std</span></div>
+                        <div class="comment-text">Gerüchten zufolge schläft der Mann mit dem Headset und atmet reines RedBull.</div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-author">Blitzer_Schreck <span class="comment-time">vor 4 Std</span></div>
+                        <div class="comment-text">Hat er den Artikel eigentlich selbst geschrieben? 🤔 Ziemlich viel Lob für jemanden, der nur telefoniert.</div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-author">Axen_Pendler <span class="comment-time">vor 4 Std</span></div>
+                        <div class="comment-text">Kann er mit seinen Superkräften auch mal den Axen staufrei zaubern? Das wäre mal ne echte Leistung.</div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-author">UrnerBär <span class="comment-time">vor 5 Std</span></div>
+                        <div class="comment-text">Ich glaube ich hab ihn mal am Telefon gehabt, als ich einen kleinen Blechschaden melden musste. Mega freundlich und super professionell. Weiter so!</div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-author">Kaffeepausen_König <span class="comment-time">vor 5 Std</span></div>
+                        <div class="comment-text">Alles schön und gut, aber der Typ schuldet mir noch ein Gipfeli von letzter Woche!</div>
                     </div>
                 </div>
             </div>
