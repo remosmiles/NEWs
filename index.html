@@ -159,4 +159,136 @@
         }
         .sidebar-item:last-child { border-bottom: none; padding-bottom: 0; }
         .sidebar-item h4 { 
-            margin: 0 0 8px 0
+            margin: 0 0 8px 0; 
+            font-size: 16px; 
+            color: #111; 
+            cursor: pointer;
+        }
+        .sidebar-item h4:hover { color: #00529F; }
+        .sidebar-item p { 
+            font-size: 14px; 
+            margin: 0; 
+            color: #666; 
+            line-height: 1.4;
+        }
+        
+        .comment-section { 
+            margin-top: 50px; 
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 4px;
+        }
+        .comment-section h3 {
+            margin-top: 0;
+            font-size: 20px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .comment { 
+            background: white; 
+            padding: 15px; 
+            margin-bottom: 15px; 
+            border-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .comment-author { 
+            font-weight: bold; 
+            margin-bottom: 8px; 
+            font-size: 15px; 
+            color: #00529F;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .container { flex-direction: column; }
+            h1 { font-size: 32px; }
+            .nav { display: none; } /* hide nav on small screens for simplicity */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">30Min.</div>
+        <div class="nav">
+            <span>News</span>
+            <span>Kanton Uri</span>
+            <span>Blaulicht</span>
+            <span>Sport</span>
+            <span>Community</span>
+        </div>
+        <div style="font-weight: bold; cursor: pointer;">☰ Menü</div>
+    </header>
+    
+    <div class="container">
+        <div class="main-content">
+            <div class="image-placeholder">
+                [ HIER BILD EINFÜGEN ]
+                <span>(Im Code einfach den &lt;div class="image-placeholder"&gt; durch ein &lt;img src="dein-bild.jpg"&gt; ersetzen)</span>
+            </div>
+            
+            <div class="article-padding">
+                <span class="breaking">🔴 Kanton Uri</span>
+                <h1>«Er ist eine Maschine»: Warum bei der Kapo Uri alle nur von Zentralist Angelo sprechen</h1>
+                
+                <div class="lead">Er bleibt cool, wenn bei anderen der Puls rast: Angelo aus der Einsatzleitzentrale der Kantonspolizei Uri gilt als absolutes Multitasking-Wunder. Seine Kollegen verraten das Geheimnis des Super-Zentralisten.</div>
+                
+                <div class="author-date">Von <strong>30Min-Reporter</strong> | Aktualisiert: Heute, 06:45 Uhr</div>
+                
+                <p><strong>ALTDORF</strong> — Es ist Freitagnachmittag, das Telefon in der Einsatzzentrale der Kapo Uri leuchtet ununterbrochen rot. Ein Unfall auf der A2, eine blockierte Fahrspur am Gotthard und gleichzeitig braucht eine Patrouille dringend eine Halterabfrage. Wer jetzt Panik erwartet, kennt Angelo nicht.</p>
+                
+                <p>Der Zentralist sitzt vor seinen Bildschirmen, das Headset sitzt perfekt, die Hände fliegen über die Tastatur. «Verstanden, zweite Patrouille rückt aus», sagt er mit einer Ruhe, die fast schon unheimlich ist.</p>
+                
+                <div class="quote">«Wenn du weisst, dass Angelo am Funk ist, bist du draussen einfach entspannter. Er taktet die Einsätze unfassbar präzise.»</div>
+                
+                <p>Unter den Polizistinnen und Polizisten an der Front ist Angelo längst eine Legende. Ein Kollege, der regelmässig Einsätze fährt, bringt es auf den Punkt. Besonders beeindruckend sei Angelos Reaktionszeit, wenn Spezialisten auf schnelle Daten aus der Zentrale angewiesen sind.</p>
+                
+                <p>«Manchmal glaube ich, er hat das Schweizer Strafgesetzbuch und sämtliche Verordnungen direkt in seinem Kopf abgespeichert», scherzt eine Polizistin. «Egal wie hektisch es wird, er verliert nie den Überblick und hat immer noch einen lockeren Spruch auf den Lippen.»</p>
+                
+                <p>Doch wie schafft man es, bei all dem Stress im Kanton so ruhig zu bleiben? Insidern zufolge ist es pure Routine und ein eiserner Fokus. Während andere nach dem dritten Einsatz einen doppelten Espresso brauchen, behält Angelo seinen kühlen Kopf und koordiniert die Rettungskräfte weiter punktgenau an die richtigen Orte. Ein wahrer Held im Hintergrund.</p>
+                
+                <div class="comment-section">
+                    <h3>💬 Community (3 Kommentare)</h3>
+                    <div class="comment">
+                        <div class="comment-author">Gotthard_Racer_99</div>
+                        Wahnsinn, solche Leute braucht das Land! Respekt an alle, die in der Zentrale den Kopf hinhalten. 🚓👏
+                    </div>
+                    <div class="comment">
+                        <div class="comment-author">UrnerBär</div>
+                        Ich glaube ich hab ihn mal am Telefon gehabt, als ich was melden musste. Mega freundlich und super professionell.
+                    </div>
+                    <div class="comment">
+                        <div class="comment-author">Schicht_Legende</div>
+                        Angelo bester Mann!!! Grüsse vom ganzen Team! 👊💪
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="sidebar">
+            <div class="sidebar-box">
+                <h3>Meistgelesen</h3>
+                <div class="sidebar-item">
+                    <h4>Gotthard-Stau eskaliert</h4>
+                    <p>Wartezeit wächst auf über 2 Stunden an den Portalen in Göschenen und Airolo.</p>
+                </div>
+                <div class="sidebar-item">
+                    <h4>Schwerverkehr im Fokus</h4>
+                    <p>Grosskontrolle im SVZ Erstfeld: Mehrere LKW mussten direkt stillgelegt werden.</p>
+                </div>
+                <div class="sidebar-item">
+                    <h4>Wetterumschwung im Kanton</h4>
+                    <p>Schnee bis auf 1500 Meter im Kanton Uri erwartet. Pässe teilweise gesperrt.</p>
+                </div>
+            </div>
+            
+            <div class="sidebar-box" style="background: #e6f2ff; border: 1px solid #b3d9ff; text-align: center;">
+                <h4 style="color: #00529F; margin-top: 0;">Werbung</h4>
+                <div style="height: 200px; background: white; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #999; border: 1px dashed #ccc;">
+                    Hier könnte<br>dein Banner stehen
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
