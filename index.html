@@ -13,7 +13,7 @@
             color: #111; 
         }
         header { 
-            background-color: #00529F; /* 20min blue style */
+            background-color: #00529F; 
             color: white; 
             padding: 10px 20px; 
             display: flex; 
@@ -27,7 +27,7 @@
         .logo { 
             font-size: 28px; 
             font-weight: 900; 
-            background: #E3000F; /* Red logo background */
+            background: #E3000F; 
             padding: 4px 12px; 
             border-radius: 3px; 
             color: white; 
@@ -125,6 +125,43 @@
             margin: 30px 0; 
             line-height: 1.4;
         }
+
+        /* --- STYLES FÜR DIE WERBEBANNER --- */
+        .ad-container { margin: 30px 0; text-align: center; }
+        .ad-label { font-size: 10px; color: #999; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px; display: block; text-align: center; }
+        
+        .ad-banner-horizontal { 
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); 
+            color: white; 
+            padding: 30px 20px; 
+            border-radius: 4px; 
+            text-decoration: none; 
+            display: block; 
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5); 
+            cursor: pointer; 
+        }
+        .ad-banner-horizontal h2 { margin: 0 0 10px 0; font-size: 28px; font-weight: 900; letter-spacing: 1px; color: #FFCC00; }
+        .ad-banner-horizontal p { margin: 0; font-size: 16px; font-weight: bold; color: #fff; }
+        .ad-banner-horizontal .btn-fake { display: inline-block; margin-top: 15px; padding: 8px 20px; background: #FFCC00; color: #111; font-weight: bold; border-radius: 3px; font-size: 14px; text-transform: uppercase; }
+
+        .ad-banner-sidebar { 
+            background: linear-gradient(135deg, #00B13D, #007A2A); 
+            color: white; 
+            height: 250px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            text-align: center; 
+            padding: 20px; 
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.3); 
+        }
+        .ad-banner-sidebar h3 { font-size: 32px; margin: 0 0 10px 0; font-weight: 900; line-height: 1.1; color: #fff; border: none; padding: 0; font-style: italic; }
+        .ad-banner-sidebar p { font-size: 14px; margin-bottom: 20px; color: #e6ffe6; font-weight: bold; line-height: 1.2; }
+        .ad-banner-sidebar .btn-fake { background: #E3000F; color: white; padding: 10px 20px; font-weight: bold; border-radius: 20px; font-size: 14px; text-transform: uppercase; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
+        /* ---------------------------------- */
         
         .sidebar h3 { 
             border-bottom: 3px solid #00529F; 
@@ -183,7 +220,7 @@
         @media (max-width: 768px) {
             .container { flex-direction: column; }
             h1 { font-size: 32px; }
-            .nav { display: none; } /* hide nav on small screens for simplicity */
+            .nav { display: none; }
         }
     </style>
 </head>
@@ -214,7 +251,16 @@
                 
                 <p><strong>ALTDORF</strong> — Es ist Freitagnachmittag, das Telefon in der Einsatzzentrale der Kapo Uri leuchtet ununterbrochen rot. Ein Unfall auf der A2, eine blockierte Fahrspur am Gotthard und gleichzeitig braucht eine Patrouille dringend eine Halterabfrage. Wer jetzt Panik erwartet, kennt Angelo nicht.</p>
                 
-                <p>Der Zentralist sits vor seinen Bildschirmen, das Headset sitzt perfekt, die Hände fliegen über die Tastatur. «Verstanden, zweite Patrouille rückt aus», sagt er mit einer Ruhe, die fast schon unheimlich ist.</p>
+                <p>Der Zentralist sitzt vor seinen Bildschirmen, das Headset sitzt perfekt, die Hände fliegen über die Tastatur. «Verstanden, zweite Patrouille rückt aus», sagt er mit einer Ruhe, die fast schon unheimlich ist.</p>
+                
+                <div class="ad-container">
+                    <span class="ad-label">- Anzeige -</span>
+                    <div class="ad-banner-horizontal">
+                        <h2>POLIZEISCHULE 2027</h2>
+                        <p>Nervenkitzel statt Büroalltag? Bewirb dich jetzt für die Polizeischule der Zentralschweizer Korps.</p>
+                        <div class="btn-fake">Mehr erfahren</div>
+                    </div>
+                </div>
                 
                 <div class="quote">«Wenn du weisst, dass Angelo am Funk ist, bist du draussen einfach entspannter. Er taktet die Einsätze unfassbar präzise.»</div>
                 
@@ -259,10 +305,12 @@
                 </div>
             </div>
             
-            <div class="sidebar-box" style="background: #e6f2ff; border: 1px solid #b3d9ff; text-align: center;">
-                <h4 style="color: #00529F; margin-top: 0;">Werbung</h4>
-                <div style="height: 200px; background: white; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #999; border: 1px dashed #ccc;">
-                    Hier könnte<br>dein Banner stehen
+            <div class="sidebar-box" style="padding: 0; background: transparent; box-shadow: none;">
+                <span class="ad-label">- Anzeige -</span>
+                <div class="ad-banner-sidebar">
+                    <h3>UR-ENERGY<br>BOOST</h3>
+                    <p>Der neue Schweizer<br>Wachmacher. 100% legal.</p>
+                    <div class="btn-fake">Jetzt sichern!</div>
                 </div>
             </div>
         </div>
