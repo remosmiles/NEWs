@@ -1,45 +1,162 @@
-<div id="news-container" style="border: 2px solid #00f2ff; padding: 20px; background: #111; color: white;">
-    <h2 style="color: #ff00e5;">Live News Ticker</h2>
-    <ul id="news-list">Lade Schlagzeilen...</ul>
-</div>
-
-<script>
-    async function getNews() {
-        const list = document.getElementById('news-list');
-        // Wir nutzen den Dienst rss2json, der CORS-Probleme umgeht
-        const rssUrl = 'https://www.20min.ch/rss';
-        const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
-
-        try {
-            const response = await fetch(apiUrl);
-            const data = await response.json();
-
-            if (data.status === 'ok') {
-                list.innerHTML = ""; // Lade-Text entfernen
-                
-                data.items.slice(0, 10).forEach(item => {
-                    const li = document.createElement('li');
-                    li.style.marginBottom = "15px";
-                    li.style.listStyle = "none";
-                    li.innerHTML = `
-                        <div style="font-size: 0.9em; color: #888;">${new Date(item.pubDate).toLocaleTimeString()}</div>
-                        <a href="${item.link}" target="_blank" style="color:#00f2ff; text-decoration:none; font-weight:bold; font-size: 1.1em;">
-                            ${item.title}
-                        </a>
-                        <p style="font-size: 0.8em; color: #ccc; margin-top: 5px;">${item.description.split('<')[0]}...</p>
-                    `;
-                    list.appendChild(li);
-                });
-            } else {
-                list.innerText = "Fehler: News konnten nicht geladen werden.";
-            }
-        } catch (error) {
-            console.error("News-Fehler:", error);
-            list.innerText = "Verbindung zum News-Server fehlgeschlagen.";
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30Min - Angelo der beste Zentralist</title>
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f2f2f2; 
+            color: #111; 
         }
-    }
+        header { 
+            background-color: #00529F; /* 20min blue style */
+            color: white; 
+            padding: 10px 20px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo { 
+            font-size: 28px; 
+            font-weight: 900; 
+            background: #E3000F; /* Red logo background */
+            padding: 4px 12px; 
+            border-radius: 3px; 
+            color: white; 
+            letter-spacing: -1px;
+            font-style: italic;
+        }
+        .nav { 
+            display: flex;
+            gap: 20px;
+            font-size: 15px; 
+            font-weight: bold; 
+            text-transform: uppercase;
+        }
+        .nav span { cursor: pointer; }
+        .nav span:hover { text-decoration: underline; }
+        
+        .container { 
+            max-width: 1080px; 
+            margin: 20px auto; 
+            display: flex; 
+            gap: 25px; 
+            padding: 0 15px;
+        }
+        
+        .main-content { 
+            flex: 2.5; 
+            background: white; 
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
+        }
+        
+        .article-padding {
+            padding: 25px;
+        }
 
-    // Sofort laden und alle 5 Minuten aktualisieren
-    getNews();
-    setInterval(getNews, 300000);
-</script>
+        .sidebar { 
+            flex: 1; 
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .sidebar-box {
+            background: white; 
+            padding: 20px; 
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .breaking { 
+            color: #E3000F; 
+            font-weight: 900; 
+            font-size: 15px; 
+            margin-bottom: 10px; 
+            display: inline-block; 
+            text-transform: uppercase; 
+        }
+        h1 { 
+            font-size: 42px; 
+            margin: 0 0 15px 0; 
+            line-height: 1.1; 
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .lead { 
+            font-weight: bold; 
+            font-size: 20px; 
+            line-height: 1.4;
+            margin-bottom: 20px; 
+            color: #333;
+        }
+        .author-date { 
+            font-size: 13px; 
+            color: #666; 
+            margin-bottom: 25px; 
+            padding-bottom: 15px; 
+            border-bottom: 1px solid #eaeaea;
+        }
+        .image-placeholder { 
+            width: 100%; 
+            height: 450px; 
+            background: linear-gradient(135deg, #e0e0e0 0%, #cccccc 100%); 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+            color: #555; 
+            font-size: 18px; 
+            font-weight: bold;
+            margin-bottom: 25px; 
+            border-bottom: 4px solid #E3000F;
+        }
+        .image-placeholder span {
+            font-size: 14px;
+            font-weight: normal;
+            margin-top: 10px;
+            color: #777;
+        }
+        
+        p { 
+            line-height: 1.6; 
+            font-size: 18px; 
+            margin-bottom: 20px; 
+            color: #222;
+        }
+        
+        .quote { 
+            font-size: 22px;
+            font-style: italic; 
+            font-weight: bold;
+            border-left: 5px solid #00529F; 
+            padding-left: 20px; 
+            color: #00529F; 
+            margin: 30px 0; 
+            line-height: 1.4;
+        }
+        
+        .sidebar h3 { 
+            border-bottom: 3px solid #00529F; 
+            padding-bottom: 8px; 
+            margin-top: 0; 
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+        .sidebar-item { 
+            padding: 15px 0; 
+            border-bottom: 1px solid #eaeaea; 
+        }
+        .sidebar-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .sidebar-item h4 { 
+            margin: 0 0 8px 0
